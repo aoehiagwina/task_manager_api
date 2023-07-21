@@ -14,7 +14,7 @@ const welcomeMessage = (email, name) => {
     })
 }
 
-const cancellationMessage = (email, name) => {
+const cancellationMessage = async (email, name) => {
     const msg = {
         to: email,
         from: 'a.o.ehiagwina@gmail.com',
@@ -30,11 +30,9 @@ const cancellationMessage = (email, name) => {
         CEO`
     }
     
-    sgMail.send(msg).then(()=> {
-        console.log('Cancellation Message sent')
-    }).catch((e) => {
-        console.log(e)
-    })
+    await sgMail.send(msg)
+    //console.log('Cancellation Message sent')
+    
 }
 
 
